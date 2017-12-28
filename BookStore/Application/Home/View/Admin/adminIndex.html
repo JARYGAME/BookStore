@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员主页</title>
+    <style>
+        body{ text-align:center}
+        #div{position: absolute;width:600px;height:200px;left:42%;top:50%;
+            margin-left:-200px;margin-top:-200px;}
+    </style>
+</head>
+<body>
+<div id="div">
+    <a href="{:U('Home/Admin/showBook')}">查看书籍信息</a>
+    <a href="{:U('Home/Admin/addBook')}">增加书籍</a>
+    <a href="{:U('Home/HomePage/homePage')}">回到主页</a>
+    <div>
+        <b>订单详情</b>
+        <table>
+            <tr>
+                <td>书名</td>
+                <td>用户名</td>
+                <td>下单时间</td>
+                <td>订单状态</td>
+                <td>订单金额</td>
+                <td>数量</td>
+                <td>操作</td>
+            </tr>
+            <volist name="order" id="o">
+                <tr>
+                    <td>{$o.book_name}</td>
+                    <td>{$o.user_name}</td>
+                    <td>{$o.order_time}</td>
+                    <td>
+                        <if condition="$o.order_state eq 0">未受理
+                            <elseif condition="$o.order_state eq 1"/>已发货
+                        </if>
+                    </td>
+                    <td>{$o.order_price}</td>
+                    <td>{$o.book_num}</td>
+                    <td><a href="javascript:void(0);" onclick="deliver('{$o.order_id}')">发货</a></td>
+                </tr>
+            </volist>
+        </table>
+    </div>
+    <script>
+        function deliver(id) {
+            window.location.href="http://localhost/bookstore/index.php/Home/Admin/updateOrder?id=" + id;
+        }
+    </script>
+</div>
+</body>
+</html>

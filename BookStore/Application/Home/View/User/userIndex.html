@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人主页</title>
+</head>
+<body>
+<div align="center">
+    <b>个人中心</b>
+    <a href="{:U('Home/HomePage/homePage')}">回到主页</a>
+    <table>
+        <tr>
+            <td>昵称</td>
+            <td>{$user.user_nickname}</td>
+        </tr>
+        <tr>
+            <td>收货地址</td>
+            <td>{$user.user_address}</td>
+        </tr>
+        <tr>
+            <td>电话</td>
+            <td>{$user.user_phone}</td>
+        </tr>
+        <tr>
+            <td>余额</td>
+            <td>{$user.user_balance}</td>
+        </tr>
+        <tr>
+            <td><a href="{:U('Home/User/changePassword')}">修改密码</a></td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <br>
+    <b>订单详情</b>
+    <table>
+        <tr>
+            <td>书名</td>
+            <td>下单时间</td>
+            <td>订单状态</td>
+            <td>订单金额</td>
+            <td>数量</td>
+        </tr>
+        <volist name="order" id="o">
+            <tr>
+                <td>{$o.book_name}</td>
+                <td>{$o.order_time}</td>
+                <td>
+                    <if condition="$o.order_state eq 0">未受理
+                        <elseif condition="$o.order_state eq 1"/>已发货
+                    </if>
+                </td>                <td>{$o.order_price}</td>
+                <td>{$o.book_num}</td>
+            </tr>
+        </volist>
+    </table>
+    <br>
+    <br>
+    <br>
+    <b>我的购物车</b>
+    <table>
+        <tr>
+            <td>书名</td>
+            <td>数量</td>
+            <td>操作</td>
+        </tr>
+        <volist name="shopping_cart" id="s">
+            <tr>
+                <td>{$s.book_name}</td>
+                <td>{$s.book_num}</td>
+                <td><a href="javascript:void(0);" onclick="addOrder('{$s.sp_cart_id}')">生成订单</a></td>
+                <td><a href="javascript:void(0);" onclick="deleteShopping('{$s.sp_cart_id}')">删除</a></td>
+            </tr>
+        </volist>
+    </table>
+</div>
+</body>
+<script>
+    function addOrder(id) {
+        var temp = confirm("确定生成订单吗");
+        if(temp)
+            window.location.href="http://localhost/bookstore/index.php/Home/User/addOrder?id=" + id;
+    }
+
+    function deleteShopping(id) {
+        window.location.href="http://localhost/bookstore/index.php/Home/User/deleteShopping?id=" + id;
+    }
+</script>
+</html>

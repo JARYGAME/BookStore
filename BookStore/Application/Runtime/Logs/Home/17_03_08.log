@@ -1,0 +1,46 @@
+[ 2017-03-08T14:37:07+08:00 ] ::1 /bookstore/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000050s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002897s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.018721s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.018909s ]
+SQL: SHOW COLUMNS FROM `bs_book` [ RunTime:0.1389s ]
+SQL: SELECT * FROM `bs_book`  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.005354s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.005589s ]
+NOTIC: [8] Undefined variable: user_name D:\www\bookstore\Application\Runtime\Cache\Home\fa5fde10d44e660aad6a6abcce6228e5.php 第 89 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.148042s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.148174s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.018130s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.018264s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.028432s ]
+INFO: [ app_end ] --END-- [ RunTime:0.028688s ]
+
+[ 2017-03-08T17:37:56+08:00 ] ::1 /bookstore/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000035s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001796s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.016445s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.016651s ]
+SQL: SHOW COLUMNS FROM `bs_book` [ RunTime:0.0202s ]
+SQL: SELECT * FROM `bs_book`  [ RunTime:0.0027s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000455s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000652s ]
+NOTIC: [8] Undefined variable: user_name D:\www\bookstore\Application\Runtime\Cache\Home\fa5fde10d44e660aad6a6abcce6228e5.php 第 89 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.093017s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.093193s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.014686s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.014862s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.017036s ]
+INFO: [ app_end ] --END-- [ RunTime:0.017270s ]
+
